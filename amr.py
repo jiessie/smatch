@@ -308,7 +308,10 @@ class AMR(object):
                     # if this node name is already in node_dict, it is duplicate
                     if node_name in node_dict:
                         print >> ERROR_LOG, "Duplicate node name ", node_name, " in parsing AMR"
-                        return None
+                        index = 0
+                        while (node_name in node_dict):
+                            index = index + 1
+                            node_name = node_name + str(index)
                     # push the node name to stack
                     stack.append(node_name)
                     # add it to node name list
